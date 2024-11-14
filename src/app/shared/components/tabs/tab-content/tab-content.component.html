@@ -1,1 +1,11 @@
-<p>tab-content works!</p>
+<div class="relative mt-6 lg:px-16 px-6">
+    @switch (activeTab()) { @case (0) {
+    <div  class="animate-slideIn">Content 1</div>
+    } @case (1) {
+    <div  class="animate-slideIn">Content 2</div>
+    } @case (2) {
+    <div  class="animate-slideIn">Content 3</div>
+    } @case (3) {
+    <div  class="animate-slideIn">Content 4</div>
+    } }
+</div>
