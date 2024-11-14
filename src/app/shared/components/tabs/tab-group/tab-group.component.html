@@ -1,1 +1,10 @@
-<p>tab-group works!</p>
+<app-tab-navbar
+  [activeTab]="activeTab()"
+  (tabSelected)="setActiveTab($event)"
+/>
+<header
+  class="h-[90px] bg-white lg:px-16 px-6 flex items-center text-[#1A314D] font-medium text-3xl"
+>
+  {{ activeTabLabel() }}
+</header>
+<app-tab-content [activeTab]="activeTab()" />
