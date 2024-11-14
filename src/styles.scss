@@ -1,3 +1,23 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// Define the theme object.
+$emmanuel_insurance-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$azure-palette,
+    tertiary: mat.$blue-palette,
+  ),
+  density: (
+    scale: 0,
+  )
+));
+
+:root {
+  @include mat.all-component-themes($emmanuel_insurance-theme);
+}
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
