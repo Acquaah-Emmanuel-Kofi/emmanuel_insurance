@@ -1,1 +1,14 @@
-<p>tab-navbar works!</p>
+<nav class="bg-[#003FCA] flex gap-2 items-center h-[70px] lg:px-16 px-6">
+  @for (tab of tabs; track $index) {
+  <button
+    (click)="selectTab($index, tab.label)"
+    class="flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm font-medium transition-colors duration-300"
+    [ngClass]="{
+      'bg-[#0051FF]': activeTab() === $index,
+    }"
+  >
+    <img [src]="tab.iconSrc" alt="{{ tab.label }} Icon" />
+    <span>{{ tab.label }}</span>
+  </button>
+  }
+</nav>
