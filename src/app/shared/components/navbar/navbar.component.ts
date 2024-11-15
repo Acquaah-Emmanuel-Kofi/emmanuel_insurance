@@ -29,7 +29,7 @@ export class NavbarComponent {
     {
       label: 'Quote History',
       iconSrc: 'assets/icons/quote_history.svg',
-      routerLink: 'history',
+      routerLink: 'quote-history',
     },
     {
       label: 'Single Quote',
