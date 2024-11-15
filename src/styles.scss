@@ -2,7 +2,6 @@
 
 @include mat.core();
 
-// Define the theme object.
 $emmanuel_insurance-theme: mat.define-theme(
   (
     color: (
@@ -30,6 +29,27 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@font-face {
+  font-family: 'Benton-Sans-Bold';
+  src: url('assets/fonts/Benton_Sans/bentonsansbold/BentonSans\ Bold.otf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Benton-Sans-Regular';
+  src: url('assets/fonts/Benton_Sans/bentonsansregular/BentonSans\ Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Benton-Sans-Medium';
+  src: url('assets/fonts/Benton_Sans/bentonsansmedium/BentonSans\ Medium.otf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
 }
 
 @keyframes slideIn {
