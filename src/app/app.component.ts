@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { TabGroupComponent } from './shared/components/tabs/tab-group/tab-group.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatSlideToggleModule, HeaderComponent, TabGroupComponent],
+  imports: [RouterOutlet, MatSlideToggleModule, HeaderComponent, TabGroupComponent, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
