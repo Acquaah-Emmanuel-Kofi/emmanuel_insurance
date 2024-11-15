@@ -1,0 +1,26 @@
+<div
+  class="flex w-full items-center bg-white gap-2 rounded-[12px] border border-[#CED3D9] text-sm px-6 py-3"
+>
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M9.33333 0C4.17868 0 0 4.17868 0 9.33333C0 14.488 4.17868 18.6667 9.33333 18.6667C11.6745 18.6667 13.8143 17.8047 15.4527 16.3808C15.4749 16.4127 15.5002 16.443 15.5286 16.4714L22.1953 23.1381C22.4556 23.3984 22.8777 23.3984 23.1381 23.1381C23.3984 22.8777 23.3984 22.4556 23.1381 22.1953L16.4714 15.5286C16.443 15.5002 16.4127 15.4749 16.3808 15.4527C17.8047 13.8143 18.6667 11.6745 18.6667 9.33333C18.6667 4.17868 14.488 0 9.33333 0ZM1.33333 9.33333C1.33333 4.91506 4.91506 1.33333 9.33333 1.33333C13.7516 1.33333 17.3333 4.91506 17.3333 9.33333C17.3333 13.7516 13.7516 17.3333 9.33333 17.3333C4.91506 17.3333 1.33333 13.7516 1.33333 9.33333Z"
+      fill="#222E37"
+    />
+  </svg>
+
+  <input
+    type="search"
+    [placeholder]="placeholder()"
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="handleSearchFilter($event)"
+    class="border-none outline-none w-full placeholder:text-[#697786] placeholder:font-BentonSansRegular placeholder:font-normal"
+  />
+</div>
