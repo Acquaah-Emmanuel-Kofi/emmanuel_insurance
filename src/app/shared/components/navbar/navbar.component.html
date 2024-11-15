@@ -1,0 +1,13 @@
+<nav class="bg-[#003FCA] flex gap-2 items-center h-[70px] lg:px-16 px-6">
+  @for (tab of navlinks; track $index) {
+  <a
+    [routerLink]="tab.routerLink"
+    routerLinkActive="bg-[#0051FF]"
+    [routerLinkActiveOptions]="{ exact: false }"
+    class="flex items-center gap-2 px-4 py-2 rounded-lg text-white text-sm transition-colors duration-300"
+  >
+    <img [src]="tab.iconSrc" alt="{{ tab.label }} Icon" />
+    <span class="font-normal font-BentonSansMedium">{{ tab.label }}</span>
+  </a>
+  }
+</nav>
