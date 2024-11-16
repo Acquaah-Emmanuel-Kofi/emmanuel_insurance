@@ -1,6 +1,24 @@
 <div
-  class="flex w-full items-center bg-white gap-2 rounded-[12px] border border-[#CED3D9] text-sm px-6 py-3"
+  class="flex w-full items-center bg-white gap-2 rounded-xl border border-[#CED3D9] text-sm px-6 py-2 focus-within:border-[#3B82F6] focus-within:outline-[#3b83f68a] {{
+    customClasses()
+  }}"
 >
+  @if(smallSize()) {
+  <svg
+    width="12"
+    height="12"
+    viewBox="0 0 12 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M4.66667 0C2.08934 0 0 2.08934 0 4.66667C0 7.244 2.08934 9.33333 4.66667 9.33333C5.83723 9.33333 6.90713 8.90235 7.72634 8.19042C7.73744 8.20634 7.7501 8.2215 7.7643 8.2357L11.0976 11.569C11.2278 11.6992 11.4389 11.6992 11.569 11.569C11.6992 11.4389 11.6992 11.2278 11.569 11.0976L8.2357 7.7643C8.2215 7.7501 8.20634 7.73744 8.19042 7.72634C8.90235 6.90713 9.33333 5.83723 9.33333 4.66667C9.33333 2.08934 7.244 0 4.66667 0ZM0.666667 4.66667C0.666667 2.45753 2.45753 0.666667 4.66667 0.666667C6.87581 0.666667 8.66667 2.45753 8.66667 4.66667C8.66667 6.87581 6.87581 8.66667 4.66667 8.66667C2.45753 8.66667 0.666667 6.87581 0.666667 4.66667Z"
+      fill="#6B7280"
+    />
+  </svg>
+  } @else {
   <svg
     width="24"
     height="24"
@@ -15,6 +33,7 @@
       fill="#222E37"
     />
   </svg>
+  }
 
   <input
     type="search"
