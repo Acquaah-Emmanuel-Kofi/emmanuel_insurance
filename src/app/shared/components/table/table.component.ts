@@ -1,4 +1,4 @@
-import { Component, computed, effect, input, model, OnInit, signal } from '@angular/core';
+import { Component, computed, effect, input, model, OnInit, output, signal } from '@angular/core';
 import { TableHeaderComponent } from './components/table-header/table-header.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 
@@ -15,6 +15,8 @@ export class TableComponent {
   itemsPerPage = signal<number>(5);
   currentPage = signal<number>(1);
 
+  rowClicked = output<void>();
+
   paginatedData = computed(() => {
     const startIndex = (this.currentPage() - 1) * this.itemsPerPage();
     const endIndex = startIndex + this.itemsPerPage();
@@ -27,6 +29,10 @@ export class TableComponent {
 
   onItemsPerPageChange(newItemsPerPage: number): void {
     this.itemsPerPage.set(newItemsPerPage);
-    this.currentPage.set(1); 
+    this.currentPage.set(1);
+  }
+
+  onRowClick(row: any): void {
+    this.rowClicked.emit(row); 
   }
 }

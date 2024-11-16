@@ -27,7 +27,7 @@
     </thead>
     <tbody>
       @for (row of paginatedData(); track $index) {
-      <tr class="border-b">
+      <tr class="border-b hover:bg-gray-100 cursor-pointer"  (click)="onRowClick(row)">
         @for (column of columns(); track $index) {
         <td
           class="py-3 px-4 text-[#222E37] font-normal font-BentonSansRegular text-sm"
