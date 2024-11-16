@@ -12,7 +12,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 export class TableComponent {
   data = input<any[]>([]);
   columns = input<{ label: string; field: string }[]>([]);
-  itemsPerPage = signal<number>(10);
+  itemsPerPage = signal<number>(5);
   currentPage = signal<number>(1);
 
   paginatedData = computed(() => {
