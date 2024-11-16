@@ -1,9 +1,12 @@
 <div class="flex items-center gap-4 justify-end">
   <div className="flex items-center">
-    <span className="mr-2">Rows per page:</span>
+    <span
+      className="mr-2 text-[#222E37] font-BentonSansRegular font-normal text-xs"
+      >Rows per page:</span
+    >
     <select
       [value]="itemsPerPage()"
-        (change)="handleRowsPerPageChange($event)"
+      (change)="handleRowsPerPageChange($event)"
       className="border p-1 outline-none"
     >
       <option [value]="5">5</option>
@@ -11,49 +14,54 @@
       <option [value]="15">15</option>
     </select>
   </div>
-  <button
-    type="button"
-    (click)="prevPage()"
-    [disabled]="currentPage() === 1"
-    class="p-2 rounded hover:bg-gray-300 cursor-pointer"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="lucide lucide-chevron-left"
-    >
-      <path d="m15 18-6-6 6-6" />
-    </svg>
-  </button>
-  
-  <button
-    type="button"
-    (click)="nextPage()"
-    [disabled]="currentPage === totalPages"
-    class="p-2 hover:bg-gray-300 cursor-pointer"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="lucide lucide-chevron-right"
-    >
-      <path d="m9 18 6-6-6-6" />
-    </svg>
-  </button>
 
-    <span class="mx-4">{{ currentPage() }} - {{itemsPerPage()}} of {{ totalItems() }}</span>
+  <div>
+    <button
+      type="button"
+      (click)="prevPage()"
+      [disabled]="currentPage() === 1"
+      class="group p-1 rounded hover:bg-gray-300 cursor-pointer disabled:cursor-not-allowed"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-chevron-left stroke-[#0051FF] group-disabled:stroke-gray-300"
+      >
+        <path d="m15 18-6-6 6-6" />
+      </svg>
+    </button>
+
+    <button
+      type="button"
+      (click)="nextPage()"
+      [disabled]="currentPage() === totalPages()"
+      class="group p-1 rounded hover:bg-gray-300 cursor-pointer disabled:cursor-not-allowed"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-chevron-right stroke-[#0051FF] group-disabled:stroke-gray-300"
+      >
+        <path d="m9 18 6-6-6-6" />
+      </svg>
+    </button>
+  </div>
+
+  <div>
+    <span class="text-[#222E37] font-BentonSansRegular font-normal text-xs"
+      >{{ currentPage() }} - {{ itemsPerPage() }} of {{ totalItems() }}</span
+    >
+  </div>
 </div>

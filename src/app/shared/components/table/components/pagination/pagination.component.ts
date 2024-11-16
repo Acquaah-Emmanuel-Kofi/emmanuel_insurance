@@ -9,7 +9,7 @@ import { Component, input, model, output, signal } from '@angular/core';
 })
 export class PaginationComponent {
   totalItems = input<number>(0);
-  itemsPerPage = model<number>(15);
+  itemsPerPage = model<number>(10);
   currentPage = signal<number>(1);
   totalPages = signal<number>(0);
 
