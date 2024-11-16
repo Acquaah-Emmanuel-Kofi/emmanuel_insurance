@@ -1,13 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ClaimsHeaderComponent } from './components/claims-header/claims-header.component';
 import { SearchbarComponent } from '../../shared/components/searchbar/searchbar.component';
 import { TableComponent } from '../../shared/components/table/table.component';
 import { IClaimsColumns, IClaimsData } from './interfaces/claims.interface';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-claims',
   standalone: true,
-  imports: [ClaimsHeaderComponent, SearchbarComponent, TableComponent],
+  imports: [
+    ClaimsHeaderComponent,
+    SearchbarComponent,
+    TableComponent,
+    RouterOutlet,
+  ],
   templateUrl: './claims.component.html',
   styleUrl: './claims.component.scss',
 })
@@ -24,7 +30,7 @@ export class ClaimsComponent {
     { label: 'Risk Type', field: 'riskType' },
     { label: 'Risk Description', field: 'riskDescription' },
   ];
-  
+
   claimsData: IClaimsData[] = [
     {
       policyHolder: 'AYISI, FRANCIS',
@@ -167,4 +173,13 @@ export class ClaimsComponent {
       riskDescription: 'Flood Damage',
     },
   ];
+
+  private _router = inject(Router);
+
+  handleRowClick(row: any): void {
+    this._router.navigate([
+      `/dashboard/claims/`,
+      row.claimNumber,
+    ]);
+  }
 }

@@ -13,7 +13,13 @@
     </div>
 
     <div>
-      <app-table [data]="claimsData" [columns]="claimsColumns" />
+      <app-table
+        [data]="claimsData"
+        [columns]="claimsColumns"
+        (rowClicked)="handleRowClick($event)"
+      />
     </div>
   </div>
+
+  <router-outlet />
 </section>
