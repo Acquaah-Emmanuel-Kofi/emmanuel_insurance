@@ -1,18 +1,34 @@
 <div class="flex items-center gap-4 justify-end">
-  <div className="flex items-center">
-    <span
-      className="mr-2 text-[#222E37] font-BentonSansRegular font-normal text-xs"
-      >Rows per page:</span
-    >
-    <select
-      [value]="itemsPerPage()"
-      (change)="handleRowsPerPageChange($event)"
-      className="border p-1 outline-none"
-    >
-      <option [value]="5">5</option>
-      <option [value]="10">10</option>
-      <option [value]="15">15</option>
-    </select>
+  <div class="flex items-center">
+    <span class="mr-2 text-[#222E37] font-medium text-xs">Rows per page:</span>
+    <div class="relative inline-block">
+      <select
+        [value]="itemsPerPage()"
+        (change)="handleRowsPerPageChange($event)"
+        class="block w-full pr-6 pl-2 py-2 text-xs text-[#222E37] bg-white border-b-2 border-b-[#d1d5db] appearance-none"
+      >
+        @for (value of pageSizeOptions(); track $index) {
+        <option [value]="value">{{ value }}</option>
+        }
+      </select>
+      <!-- Dropdown arrow -->
+      <div
+        class="absolute inset-y-0 right-2 flex items-center pl-4 pointer-events-none"
+      >
+        <svg
+          width="10"
+          height="6"
+          viewBox="0 0 10 6"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.0432592 0.296581C0.123592 0.116205 0.302554 0 0.500009 0H9.50001C9.69746 0 9.87643 0.116205 9.95676 0.296581C10.0371 0.476956 10.0037 0.687715 9.87166 0.834482L5.37166 5.83448C5.27683 5.93984 5.14175 6 5.00001 6C4.85827 6 4.72318 5.93984 4.62836 5.83448L0.128362 0.834482C-0.00372854 0.687715 -0.0370732 0.476956 0.0432592 0.296581Z"
+            fill="#0051FF"
+          />
+        </svg>
+      </div>
+    </div>
   </div>
 
   <div>
@@ -23,17 +39,18 @@
       class="group p-1 rounded hover:bg-gray-300 cursor-pointer disabled:cursor-not-allowed"
     >
       <svg
-        xmlns="http://www.w3.org/2000/svg"
         width="24"
         height="24"
         viewBox="0 0 24 24"
         fill="none"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-chevron-left stroke-[#0051FF] group-disabled:stroke-gray-300"
+        xmlns="http://www.w3.org/2000/svg"
+                class="stroke-[#0051FF] group-disabled:stroke-gray-300"
+
       >
-        <path d="m15 18-6-6 6-6" />
+        <path
+          d="M16.5889 2.98503C16.3045 2.6839 15.8298 2.67033 15.5286 2.95474L7.29841 10.7277C6.5672 11.4183 6.5672 12.5817 7.29841 13.2723L15.5286 21.0453C15.8298 21.3297 16.3045 21.3161 16.5889 21.015C16.8733 20.7138 16.8597 20.2392 16.5586 19.9547L8.32834 12.1818C8.22389 12.0831 8.22389 11.9169 8.32834 11.8182L16.5586 4.04526C16.8597 3.76085 16.8733 3.28617 16.5889 2.98503Z"
+          fill="#0051FF"
+        />
       </svg>
     </button>
 
@@ -44,17 +61,18 @@
       class="group p-1 rounded hover:bg-gray-300 cursor-pointer disabled:cursor-not-allowed"
     >
       <svg
-        xmlns="http://www.w3.org/2000/svg"
         width="24"
         height="24"
         viewBox="0 0 24 24"
         fill="none"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-chevron-right stroke-[#0051FF] group-disabled:stroke-gray-300"
+        xmlns="http://www.w3.org/2000/svg"
+                class="stroke-[#0051FF] group-disabled:stroke-gray-300"
+
       >
-        <path d="m9 18 6-6-6-6" />
+        <path
+          d="M8.01497 2.95474C7.71383 2.67033 7.23915 2.6839 6.95474 2.98503C6.67033 3.28617 6.6839 3.76085 6.98503 4.04526L15.2153 11.8182C15.3197 11.9169 15.3197 12.0831 15.2153 12.1818L6.98503 19.9547C6.6839 20.2392 6.67033 20.7138 6.95474 21.015C7.23915 21.3161 7.71383 21.3297 8.01497 21.0453L16.2452 13.2723C16.9764 12.5817 16.9764 11.4183 16.2452 10.7277L8.01497 2.95474Z"
+          fill="#CED3D9"
+        />
       </svg>
     </button>
   </div>
