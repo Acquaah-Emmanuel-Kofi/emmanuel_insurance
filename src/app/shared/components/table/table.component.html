@@ -1,21 +1,42 @@
 <div class="overflow-x-auto">
-    <table class="min-w-full bg-white shadow-md rounded-xl border border-[#CED3D9]">
-        <thead>
-            <tr class="border-b bg-[#EAECF0]">
-                @for (column of columns(); track $index) {
+  <table
+    class="min-w-full bg-white shadow-md rounded-xl border border-[#CED3D9]"
+  >
+    <thead>
+      <tr>
+        <th
+          [colSpan]="columns().length"
+          class="px-4 py-6 text-[#697786] border-b-2 border-[#CED3D9] text-sm font-medium font-BentonSansMedium text-left"
+        >
+          <app-table-header
+            [totalNumberOfData]="data().length"
+            buttonTitle="FILTER"
+          />
+        </th>
+      </tr>
+      <tr class="border-b bg-[#EAECF0]">
+        @for (column of columns(); track $index) {
 
-                <th class="py-3 px-4 text-left text-[#222E37] font-medium font-BentonSansMedium text-sm">{{
-                    column.label }}</th>
-                }
-            </tr>
-        </thead>
-        <tbody>
-            @for (row of paginatedData; track $index) {
-                <tr class="border-b">
-                    @for (column of columns(); track $index) {
-                        <td class="py-3 px-4 text-[#222E37] font-normal font-BentonSansRegular text-sm">{{ row[column.field] || "---" }}</td>
-                    }
-                </tr>
-            }
-        </tbody>
-    </table>
+        <th
+          class="py-3 px-4 text-left text-[#222E37] font-medium font-BentonSansMedium text-sm"
+        >
+          {{ column.label }}
+        </th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (row of paginatedData; track $index) {
+      <tr class="border-b">
+        @for (column of columns(); track $index) {
+        <td
+          class="py-3 px-4 text-[#222E37] font-normal font-BentonSansRegular text-sm"
+        >
+          {{ row[column.field] || "---" }}
+        </td>
+        }
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
