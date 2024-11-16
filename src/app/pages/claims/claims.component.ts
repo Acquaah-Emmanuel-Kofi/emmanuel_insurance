@@ -3,7 +3,7 @@ import { ClaimsHeaderComponent } from './components/claims-header/claims-header.
 import { SearchbarComponent } from '../../shared/components/searchbar/searchbar.component';
 import { TableComponent } from '../../shared/components/table/table.component';
 import { IClaimsColumns, IClaimsData } from './interfaces/claims.interface';
-import { Router, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-claims',
@@ -175,11 +175,16 @@ export class ClaimsComponent {
   ];
 
   private _router = inject(Router);
+  private _activatedRoute = inject(ActivatedRoute);
+
+  isChildRouteActive(): boolean {
+    return this._activatedRoute.firstChild !== null;
+  }
 
   handleRowClick(row: any): void {
-    this._router.navigate([
-      `/dashboard/claims/`,
-      row.claimNumber,
-    ]);
+    this._router.navigate(
+      [`dashboard`, 'claims', 'claim-summary'],
+      { queryParams: { claimNumber: row.claimNumber } }
+    );
   }
 }
