@@ -1,1 +1,26 @@
-<p>table-header works!</p>
+<div class="flex items-center justify-between">
+  <label for="table">{{ totalNumberOfData() }} records in total</label>
+  <button
+    type="button"
+    (click)="onButtonClick()"
+    class="flex items-center gap-2"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#0051FF"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-filter"
+    >
+      <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+    </svg>
+    <span class="text-[#0051FF] text-sm font-bold font-BentonSansBold">{{
+      buttonTitle()
+    }}</span>
+  </button>
+</div>
