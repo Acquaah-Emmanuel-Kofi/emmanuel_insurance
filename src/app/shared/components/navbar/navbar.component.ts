@@ -19,22 +19,22 @@ export class NavbarComponent {
     {
       label: 'Home',
       iconSrc: 'assets/icons/home.svg',
-      routerLink: '',
+      routerLink: '/dashboard',
     },
     {
       label: 'Claims',
       iconSrc: 'assets/icons/claims.svg',
-      routerLink: 'claims',
+      routerLink: '/dashboard/claims',
     },
     {
       label: 'Quote History',
       iconSrc: 'assets/icons/quote_history.svg',
-      routerLink: 'quote-history',
+      routerLink: '/dashboard/quote-history',
     },
     {
       label: 'Single Quote',
       iconSrc: 'assets/icons/single_quote.svg',
-      routerLink: 'single-quote',
+      routerLink: '/dashboard/single-quote',
     },
   ];
 }

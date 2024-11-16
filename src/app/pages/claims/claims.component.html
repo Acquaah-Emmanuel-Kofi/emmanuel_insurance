@@ -1,12 +1,27 @@
 <section>
-    <app-claims-header />
-
-    <div class="lg:px-16 px-6 pt-6">
-        <label for="header title" class="font-BentonSansMedium font-medium text-lg text-[#222E37]">Claims Assigned To Me</label>
-
-        <div class="mt-6 mb-4">
+    @if (!isChildRouteActive()){
+        <app-claims-header />
+      
+        <div class="lg:px-16 px-6 pt-6 pb-16 space-y-6">
+          <label
+            for="header title"
+            class="font-BentonSansMedium font-medium text-lg text-[#222E37]"
+            >Claims Assigned To Me</label
+          >
+      
+          <div>
             <app-searchbar />
+          </div>
+      
+          <div>
+            <app-table
+              [data]="claimsData"
+              [columns]="claimsColumns"
+              (rowClicked)="handleRowClick($event)"
+            />
+          </div>
         </div>
-    </div>
-    
+    }
+
+  <router-outlet />
 </section>

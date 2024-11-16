@@ -1,0 +1,67 @@
+<div class="flex items-center gap-4 justify-end">
+  <div class="flex items-center">
+    <span class="mr-2 text-[#222E37] font-medium text-xs">Rows per page:</span>
+    <div class="relative inline-block">
+      <select
+        [value]="itemsPerPage()"
+        (change)="handleRowsPerPageChange($event)"
+        class="block w-full pr-6 pl-2 py-2 text-xs text-[#222E37] bg-white border-b-2 border-b-[#d1d5db] appearance-none"
+      >
+        @for (value of pageSizeOptions(); track $index) {
+        <option [value]="value">{{ value }}</option>
+        }
+      </select>
+      <!-- Dropdown arrow -->
+      <div
+        class="absolute inset-y-0 right-2 flex items-center pl-4 pointer-events-none"
+      >
+        <svg
+          width="10"
+          height="6"
+          viewBox="0 0 10 6"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.0432592 0.296581C0.123592 0.116205 0.302554 0 0.500009 0H9.50001C9.69746 0 9.87643 0.116205 9.95676 0.296581C10.0371 0.476956 10.0037 0.687715 9.87166 0.834482L5.37166 5.83448C5.27683 5.93984 5.14175 6 5.00001 6C4.85827 6 4.72318 5.93984 4.62836 5.83448L0.128362 0.834482C-0.00372854 0.687715 -0.0370732 0.476956 0.0432592 0.296581Z"
+            fill="#0051FF"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <button
+      type="button"
+      (click)="prevPage()"
+      [disabled]="currentPage() === 1"
+      class="group p-1 rounded hover:bg-gray-300 cursor-pointer disabled:cursor-not-allowed"
+    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-chevron-left stroke-[#0051FF] group-disabled:stroke-gray-300">
+        <path d="m15 18-6-6 6-6" />
+    </svg>
+    </button>
+
+    <button
+      type="button"
+      (click)="nextPage()"
+      [disabled]="currentPage() === totalPages()"
+      class="group p-1 rounded hover:bg-gray-300 cursor-pointer disabled:cursor-not-allowed"
+    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-chevron-right stroke-[#0051FF] group-disabled:stroke-gray-300">
+        <path d="m9 18 6-6-6-6" />
+    </svg>
+    </button>
+  </div>
+
+  <div>
+    <span class="text-[#222E37] font-BentonSansRegular font-normal text-xs"
+      >{{ currentPage() }} - {{ itemsPerPage() }} of {{ totalItems() }}</span
+    >
+  </div>
+</div>

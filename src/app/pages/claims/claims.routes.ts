@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { ClaimSummaryComponent } from './components/claim-summary/claim-summary.component';
 
 export const claimsRoutes: Routes = [
   {
@@ -6,5 +7,8 @@ export const claimsRoutes: Routes = [
     redirectTo: '',
     pathMatch: 'full',
   },
-
+  {
+    path: 'claim-summary',
+    component: ClaimSummaryComponent
+  },
 ];
