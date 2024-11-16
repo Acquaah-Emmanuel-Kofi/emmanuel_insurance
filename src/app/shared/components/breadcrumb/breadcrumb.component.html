@@ -1,0 +1,49 @@
+<nav
+  class="flex items-center space-x-2 text-xs text-gray-500"
+  aria-label="Breadcrumb"
+>
+  @for (link of links(); track $index) {
+  <ng-container>
+    <div class="flex items-center">
+      @if (link.href && $index < links().length - 1) {
+      <ng-container>
+        <a
+          [routerLink]="link.href"
+          class="hover:text-gray-700 text-[#465463] font-BentonSansMedium font-medium text-xs"
+        >
+          {{ link.label }}
+        </a>
+      </ng-container>
+      } @else {
+      <ng-container>
+        @if ($index === links().length - 1) {
+        <span class="text-[#0051FF] font-BentonSansMedium font-medium text-xs">
+          {{ link.label }}
+        </span>
+        } @else {
+        <span
+          class="hover:text-gray-700 text-[#465463] font-BentonSansMedium font-medium text-xs"
+          >{{ link.label }}</span
+        >
+        }
+      </ng-container>
+      } @if ($index < links().length - 1) {
+      <span class="ml-2">
+        <svg
+          width="8"
+          height="14"
+          viewBox="0 0 8 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1.34331 0.969869C1.14255 0.780263 0.8261 0.789304 0.636495 0.990064C0.446889 1.19082 0.45593 1.50728 0.65669 1.69688L6.14351 6.87887C6.21314 6.94464 6.21315 7.05544 6.14351 7.12121L0.65669 12.3032C0.455931 12.4928 0.446889 12.8093 0.636495 13.01C0.826101 13.2108 1.14255 13.2198 1.34331 13.0302L6.83013 7.84822C7.3176 7.38783 7.3176 6.61225 6.83013 6.15186L1.34331 0.969869Z"
+            fill="#465463"
+          />
+        </svg>
+      </span>
+      }
+    </div>
+  </ng-container>
+  }
+</nav>
