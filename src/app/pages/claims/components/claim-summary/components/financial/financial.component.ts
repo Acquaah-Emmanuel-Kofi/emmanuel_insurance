@@ -3,7 +3,6 @@ import { FinancialStatCardComponent } from './components/financial-stat-card/fin
 import { ILabelValue } from '../../../../../../shared/interfaces/constants.interface';
 import { SearchbarComponent } from '../../../../../../shared/components/searchbar/searchbar.component';
 import { TableComponent } from '../../../../../../shared/components/table/table.component';
-import { EmptyDataComponent } from '../../../../../../shared/components/empty-data/empty-data.component';
 
 type StatCards = {
   title: string;
@@ -14,7 +13,7 @@ type StatCards = {
 @Component({
   selector: 'app-financial',
   standalone: true,
-  imports: [FinancialStatCardComponent, SearchbarComponent, TableComponent, EmptyDataComponent],
+  imports: [FinancialStatCardComponent, SearchbarComponent, TableComponent],
   templateUrl: './financial.component.html',
   styleUrl: './financial.component.scss',
 })
