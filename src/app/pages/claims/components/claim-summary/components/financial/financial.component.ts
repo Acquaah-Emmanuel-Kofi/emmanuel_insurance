@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FinancialStatCardComponent } from './components/financial-stat-card/financial-stat-card.component';
 import { ILabelValue } from '../../../../../../shared/interfaces/constants.interface';
+import { SearchbarComponent } from '../../../../../../shared/components/searchbar/searchbar.component';
 
 type StatCards = {
   title: string;
@@ -11,7 +12,7 @@ type StatCards = {
 @Component({
   selector: 'app-financial',
   standalone: true,
-  imports: [FinancialStatCardComponent],
+  imports: [FinancialStatCardComponent, SearchbarComponent],
   templateUrl: './financial.component.html',
   styleUrl: './financial.component.scss',
 })
