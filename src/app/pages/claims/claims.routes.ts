@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { ClaimSummaryComponent } from './components/claim-summary/claim-summary.component';
 import { IncidentComponent } from './components/claim-summary/components/incident/incident.component';
+import { DairyItemComponent } from './components/claim-summary/components/dairy-item/dairy-item.component';
 
 export const claimsRoutes: Routes = [
   {
@@ -35,7 +36,7 @@ export const claimsRoutes: Routes = [
       },
       {
         path: 'dairy-items',
-        component: IncidentComponent,
+        component: DairyItemComponent,
       },
       {
         path: 'financial',
