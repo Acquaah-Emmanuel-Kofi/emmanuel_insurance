@@ -1,6 +1,6 @@
 <section>
   <header
-    class="h-[90px] bg-white lg:px-16 px-6 flex justify-between items-center"
+    class="bg-white lg:px-16 px-6 py-7 flex justify-between items-center"
   >
     <div>
       <label
@@ -29,4 +29,20 @@
       />
     </div>
   </header>
+
+  <div class="lg:px-16 px-6 pt-6 pb-16 space-y-6">
+    <label
+      for="header title"
+      class="font-BentonSansMedium font-medium text-lg text-[#222E37]"
+      >Claim - {{ claimNumber() }}</label
+    >
+
+    <div>
+        <app-claim-tabs />
+    </div>
+
+    <div>
+        <router-outlet />
+    </div>
+  </div>
 </section>
