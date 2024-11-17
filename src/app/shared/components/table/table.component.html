@@ -1,7 +1,5 @@
 <div class="overflow-x-auto rounded-xl border border-[#CED3D9]">
-  <table
-    class="min-w-full bg-white"
-  >
+  <table class="min-w-full bg-white">
     <thead>
       <tr>
         <th
@@ -27,7 +25,10 @@
     </thead>
     <tbody>
       @for (row of paginatedData(); track $index) {
-      <tr class="border-b hover:bg-gray-100 cursor-pointer"  (click)="onRowClick(row)">
+      <tr
+        class="border-b hover:bg-gray-100 cursor-pointer"
+        (click)="onRowClick(row)"
+      >
         @for (column of columns(); track $index) {
         <td
           class="py-3 px-4 text-[#222E37] font-normal font-BentonSansRegular text-sm"
@@ -36,11 +37,20 @@
         </td>
         }
       </tr>
+      } @empty {
+      <tr>
+        <td colspan="100%" class="py-8">
+          <app-empty-data
+            [title]="emptyMessageTitle()"
+            [subTitle]="emptyMessageSubTitle()"
+          />
+        </td>
+      </tr>
       }
     </tbody>
     <tfoot>
       <tr>
-        <th [colSpan]="columns().length" class="p-4">
+        <th [colSpan]="columns().length" class="p-4 border-t">
           <app-pagination
             [totalItems]="data().length"
             [(itemsPerPage)]="itemsPerPage"
