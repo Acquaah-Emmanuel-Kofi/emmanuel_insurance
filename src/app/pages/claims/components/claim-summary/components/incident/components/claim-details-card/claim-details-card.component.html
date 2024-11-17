@@ -1,0 +1,24 @@
+<div
+  class="bg-white border border-[#CED3D9] rounded-xl shadow-sm w-full {{
+    customClasses()
+  }}"
+>
+  @if(title()) {
+  <div class="border-b pb-2 pt-5 px-5 mb-4 text-base font-medium font-BentonSansMedium text-[#1A314D]">
+    {{ title() }}
+  </div>
+  } @if(items().length) {
+    <div class="w-full p-5">
+        @for(item of items(); track $index) {
+            <div class="grid grid-cols-2 gap-4 p-3 text-sm odd:bg-[#F3F4F6]">
+                <div class="text-[#1A314D] font-medium font-BentonSansMedium">{{ item.label }}</div>
+                <div class="text-[#222E37] font-normal font-BentonSansRegular text-left">{{ item.value || '---' }}</div>
+            </div>
+        }
+    </div>
+  } @else {
+  <div class="w-full p-5">
+    <ng-content></ng-content>
+  </div>
+  }
+</div>
