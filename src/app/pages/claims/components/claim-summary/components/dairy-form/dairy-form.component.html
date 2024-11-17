@@ -1,65 +1,133 @@
-<div class="bg-white p-4 space-y-6 w-full">
-    <div class="flex justify-between items-center">
-        <label for="form" class="font-bold font-BentonSansBold text-2xl">Add Diary Item</label>
+<div class="bg-white w-full space-y-6 overflow-hidden">
+  <div class="flex justify-between items-center p-4">
+    <label for="form" class="font-bold font-BentonSansBold text-2xl"
+      >Add Diary Item</label
+    >
 
-        <button type="button" (click)="dialogRef.close()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#222E37"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
-                <path d="M18 6 6 18" />
-                <path d="m6 6 12 12" />
-            </svg>
-        </button>
-    </div>
-    <form (ngSubmit)="onSubmit()" [formGroup]="form">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <!-- Type Dropdown -->
-            <div>
-                <app-input-field label="Type" type="select" id="type" [control]="form.get('type')"
-                    [options]="typeOptions"></app-input-field>
-            </div>
-    
-            <!-- Title Input -->
-            <div>
-                <app-input-field label="Title" placeholder="Type Title" id="title"
-                    [control]="form.get('title')"></app-input-field>
-            </div>
-    
-            <!-- Priority Dropdown -->
-            <div>
-                <app-input-field label="Priority" type="select" id="priority" [control]="form.get('priority')"
-                    [options]="priorityOptions" placeholder="Select Priority"></app-input-field>
-            </div>
-    
-            <!-- Due Date -->
-            <div>
-                <app-input-field label="Due Date" type="date" [control]="form.get('dueDate')"
-                    placeholder="Select Due Date"></app-input-field>
-            </div>
-        </div>
-    
-        <!-- Description -->
+    <button type="button" (click)="dialogRef.close()">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M12.7073 12L17.8532 6.85401C18.0492 6.65801 18.0492 6.34201 17.8532 6.14601C17.6582 5.95101 17.3422 5.95101 17.1462 6.14601L12.0002 11.293L6.85325 6.14601C6.65825 5.95101 6.34225 5.95101 6.14625 6.14601C5.95125 6.34201 5.95125 6.65801 6.14625 6.85401L11.2933 12L6.14625 17.146C5.95125 17.342 5.95125 17.658 6.14625 17.854C6.24425 17.951 6.37225 18 6.50025 18C6.62825 18 6.75625 17.951 6.85325 17.854L12.0002 12.707L17.1462 17.854C17.2442 17.951 17.3722 18 17.5002 18C17.6283 18 17.7562 17.951 17.8532 17.854C18.0492 17.658 18.0492 17.342 17.8532 17.146L12.7073 12Z"
+          fill="#222E37"
+        />
+        <mask
+          id="mask0_352_23510"
+          style="mask-type: luminance"
+          maskUnits="userSpaceOnUse"
+          x="6"
+          y="5"
+          width="12"
+          height="13"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M12.7073 12L17.8532 6.85401C18.0492 6.65801 18.0492 6.34201 17.8532 6.14601C17.6582 5.95101 17.3422 5.95101 17.1462 6.14601L12.0002 11.293L6.85325 6.14601C6.65825 5.95101 6.34225 5.95101 6.14625 6.14601C5.95125 6.34201 5.95125 6.65801 6.14625 6.85401L11.2933 12L6.14625 17.146C5.95125 17.342 5.95125 17.658 6.14625 17.854C6.24425 17.951 6.37225 18 6.50025 18C6.62825 18 6.75625 17.951 6.85325 17.854L12.0002 12.707L17.1462 17.854C17.2442 17.951 17.3722 18 17.5002 18C17.6283 18 17.7562 17.951 17.8532 17.854C18.0492 17.658 18.0492 17.342 17.8532 17.146L12.7073 12Z"
+            fill="white"
+          />
+        </mask>
+        <g mask="url(#mask0_352_23510)">
+          <rect width="24" height="24" fill="#222E37" />
+        </g>
+      </svg>
+    </button>
+  </div>
+  <form class="p-4" (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <!-- Type Dropdown -->
         <div>
-            <app-input-field label="Description" type="textarea" id="description" [control]="form.get('description')"
-                placeholder="Type Description..."></app-input-field>
+          <app-input-field
+            label="Type"
+            type="select"
+            id="type"
+            [control]="form.get('type')"
+            [options]="typeOptions"
+          ></app-input-field>
         </div>
-    
-        <div class="flex items-center gap-2">
-            <input id="confidential" type="checkbox" formControlName="confidential"
-                class="h-4 w-4 rounded border-gray-300 accent-[#0051FF]" />
-            <label for="confidential" class="text-[#1F2937] font-medium font-BentonSansMedium text-sm">Confidential</label>
-        </div>
-    
-        <!-- Buttons -->
-        <div class="flex justify-end gap-4">
-            <button type="button" (click)="onCancel()"
-                class="px-4 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-50">
-                Cancel
-            </button>
-            <button type="submit"
-                class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
-                Add
-            </button>
-        </div>
-    </form>
 
+        <!-- Title Input -->
+        <div>
+          <app-input-field
+            label="Title"
+            placeholder="Type Title"
+            id="title"
+            [control]="form.get('title')"
+          ></app-input-field>
+        </div>
+
+        <!-- Priority Dropdown -->
+        <div>
+          <app-input-field
+            label="Priority"
+            type="select"
+            id="priority"
+            [control]="form.get('priority')"
+            [options]="priorityOptions"
+            placeholder="Select Priority"
+          ></app-input-field>
+        </div>
+
+        <!-- Due Date -->
+        <div>
+          <app-input-field
+            label="Due Date"
+            type="date"
+            [control]="form.get('dueDate')"
+            placeholder="Select Due Date"
+          ></app-input-field>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div>
+        <app-input-field
+          label="Description"
+          type="textarea"
+          id="description"
+          [control]="form.get('description')"
+          placeholder="Type Description..."
+        ></app-input-field>
+      </div>
+
+      <div class="flex items-center gap-2 mt-8">
+        <input
+          id="confidential"
+          type="checkbox"
+          formControlName="confidential"
+          class="h-4 w-4 rounded border-gray-300 accent-[#0051FF]"
+        />
+        <label
+          for="confidential"
+          class="text-[#1F2937] font-medium font-BentonSansMedium text-sm"
+          >Confidential</label
+        >
+      </div>
+    </div>
+  </form>
+
+  <!-- Buttons -->
+  <div class="flex items-center justify-end gap-4 bg-[#F9FAFB] p-6 border-t">
+    <button
+      type="button"
+      (click)="onCancel()"
+      class="px-4 py-2 rounded-md bg-white border border-[#E5E7EB] text-[#1F2937] font-bold font-BentonSansBold text-sm hover:bg-gray-50"
+    >
+      Cancel
+    </button>
+    <button
+      type="submit"
+      class="px-4 py-2 rounded-md bg-[#0051FF] text-white font-bold font-BentonSansBold text-sm hover:bg-blue-700 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+    >
+      Add
+    </button>
+  </div>
 </div>
