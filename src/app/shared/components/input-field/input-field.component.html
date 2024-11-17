@@ -27,8 +27,10 @@
   <select
     [value]="value()"
     (change)="onValueChange($event)"
+    [name]="label()"
     class="px-4 py-2 border border-[#D0D5DD] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0051FF]"
   >
+    <option value="" disabled selected hidden>{{placeholder()}}</option>
     @for (option of options(); track $index) {
     <option [value]="option.value">{{ option.label }}</option>
     }
