@@ -1,11 +1,12 @@
 import { Component, computed, effect, input, model, OnInit, output, signal } from '@angular/core';
 import { TableHeaderComponent } from './components/table-header/table-header.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { EmptyDataComponent } from '../empty-data/empty-data.component';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [TableHeaderComponent, PaginationComponent],
+  imports: [TableHeaderComponent, PaginationComponent, EmptyDataComponent],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
 })
@@ -14,6 +15,8 @@ export class TableComponent {
   columns = input<{ label: string; field: string }[]>([]);
   itemsPerPage = signal<number>(5);
   currentPage = signal<number>(1);
+  emptyMessageTitle = input<string>('');
+  emptyMessageSubTitle = input<string>('');
 
   rowClicked = output<void>();
 
@@ -33,6 +36,6 @@ export class TableComponent {
   }
 
   onRowClick(row: any): void {
-    this.rowClicked.emit(row); 
+    this.rowClicked.emit(row);
   }
 }
