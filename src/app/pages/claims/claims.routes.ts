@@ -13,6 +13,11 @@ export const claimsRoutes: Routes = [
     component: ClaimSummaryComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'incident',
+        pathMatch: 'full',
+      },
+      {
         path: 'incident',
         component: IncidentComponent,
       },
