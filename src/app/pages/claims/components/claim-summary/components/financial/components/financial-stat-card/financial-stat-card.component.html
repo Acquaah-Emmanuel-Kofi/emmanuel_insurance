@@ -1,1 +1,36 @@
-<p>financial-stat-card works!</p>
+<div
+  class="bg-white text-[#222E37] border border-[#CED3D9] rounded-xl w-full h-[230px]"
+>
+  <div class="p-4 border-b">
+    <label
+      for="stat card title"
+      class="font-medium font-BentonSansMedium text-lg"
+      >{{ title() }}</label
+    >
+  </div>
+
+  <div class="p-4 space-y-2">
+    <div>
+      <p class="font-normal font-BentonSansRegular text-3xl">
+        {{ price() | currency : "GHS" }}
+      </p>
+    </div>
+
+    <div
+      class="w-full h-14 flex flex-col justify-center"
+    >
+      @if (subPrices().length) {
+      <ng-container>
+        @for (price of subPrices(); track $index) {
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-[13.15px]">{{ price.label }}</span>
+          <span class="text-[15.35px] font-medium font-BentonSansMedium">{{
+            price.value | currency : "GHS"
+          }}</span>
+        </div>
+        }
+      </ng-container>
+      }
+    </div>
+  </div>
+</div>
