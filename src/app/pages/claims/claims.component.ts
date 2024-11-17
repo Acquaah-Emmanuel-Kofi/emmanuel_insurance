@@ -182,9 +182,12 @@ export class ClaimsComponent {
   }
 
   handleRowClick(row: any): void {
-    this._router.navigate(
-      [`dashboard`, 'claims', 'claim-summary'],
-      { queryParams: { claimNumber: row.claimNumber } }
-    );
+    this._router.navigate(['dashboard', 'claims', 'claim-summary'], {
+      state: {
+        claimNumber: row.claimNumber,
+        policyHolder: row.policyHolder,
+        policyNumber: row.policyNumber,
+      },
+    });
   }
 }

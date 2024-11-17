@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 export class SearchbarComponent {
   searchTermValue = output<string>();
   placeholder = input<string>('Search');
+  customClasses = input<string>('');
+  smallSize = input<boolean>(false);
   searchTerm: string = '';
 
   handleSearchFilter(event: string) {

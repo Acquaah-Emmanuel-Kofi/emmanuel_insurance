@@ -1,0 +1,20 @@
+<section class="bg-white rounded-xl border border-[#CED3D9] p-7 grid lg:grid-cols-2 grid-cols-1 gap-7">
+    <div class="flex flex-col gap-10">
+        <app-claim-details-card [items]="policyHolderItems" />
+      
+        <app-claim-details-card [items]="policyHolderItems" />
+    </div>
+    
+    <div class="flex flex-col gap-10">
+        <app-claim-details-card title="Contact Details" [items]="contactDetailsItems" />
+
+        <app-claim-details-card title="Claim Description">
+          <p class="text-sm text-gray-600">---</p>
+        </app-claim-details-card>
+
+        <app-claim-details-card title="Claim Comment">
+            <p class="text-sm text-gray-600">---</p>
+        </app-claim-details-card>
+    </div>
+
+</section>
