@@ -1,1 +1,26 @@
-<p>claim-tabs works!</p>
+<nav class="flex items-center">
+  @for (tab of claimsTabOptions; track $index) {
+  <a
+    [routerLink]="tab.routerLink"
+    routerLinkActive="text-[#0051FF] bg-[#DFEEFD] border-[#0051FF] font-BentonSansRegular font-medium text-base"
+    class="flex items-center gap-2 p-3 bg-white border border-[#E5E7EB] text-[#1F2937] text-sm transition-colors duration-300 first:rounded-l-lg last:rounded-r-lg"
+    [style.borderColor]="isActive(tab.routerLink) ? '#0051FF' : '#E5E7EB'"
+  >
+    <div
+      [style]="
+        isActive(tab.routerLink)
+          ? 'background-color: #0051FF; -webkit-mask: url(' +
+            tab.iconSrc +
+            ') no-repeat center;'
+          : 'background-color: #1F2937; -webkit-mask: url(' +
+            tab.iconSrc +
+            ') no-repeat center;'
+      "
+      class="w-4 h-4"
+    >
+      <img [src]="tab.iconSrc" alt="{{ tab.label }}" class="opacity-0" />
+    </div>
+    <span class="font-normal font-BentonSansMedium" [style.color]="isActive(tab.routerLink) ? '#0051FF' : '#1F2937'">{{ tab.label }}</span>
+  </a>
+  }
+</nav>
