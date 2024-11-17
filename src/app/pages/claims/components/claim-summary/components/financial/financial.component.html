@@ -20,4 +20,13 @@
   <div>
     <app-searchbar customClasses="placeholder:text-lg" />
   </div>
+
+  <div>
+    <app-table
+      [data]="claimData"
+      [columns]="claimColumns"
+      emptyMessageTitle="No Payments Found for Claim"
+      emptyMessageSubTitle="A list of claim payments will appear here if there are any."
+    />
+  </div>
 </section>

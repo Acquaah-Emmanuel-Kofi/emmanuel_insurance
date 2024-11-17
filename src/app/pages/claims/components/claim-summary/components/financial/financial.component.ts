@@ -2,17 +2,19 @@ import { Component } from '@angular/core';
 import { FinancialStatCardComponent } from './components/financial-stat-card/financial-stat-card.component';
 import { ILabelValue } from '../../../../../../shared/interfaces/constants.interface';
 import { SearchbarComponent } from '../../../../../../shared/components/searchbar/searchbar.component';
+import { TableComponent } from '../../../../../../shared/components/table/table.component';
+import { EmptyDataComponent } from '../../../../../../shared/components/empty-data/empty-data.component';
 
 type StatCards = {
   title: string;
   price: number;
   subPrices: ILabelValue[];
-}
+};
 
 @Component({
   selector: 'app-financial',
   standalone: true,
-  imports: [FinancialStatCardComponent, SearchbarComponent],
+  imports: [FinancialStatCardComponent, SearchbarComponent, TableComponent, EmptyDataComponent],
   templateUrl: './financial.component.html',
   styleUrl: './financial.component.scss',
 })
@@ -67,4 +69,13 @@ export class FinancialComponent {
       ],
     },
   ];
+
+  claimColumns = [
+    { label: 'Claimant', field: 'claimant' },
+    { label: 'Reference', field: 'reference' },
+    { label: 'Status', field: 'status' },
+    { label: 'Amount', field: 'amount' },
+  ];
+
+  claimData = [];
 }
