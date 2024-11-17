@@ -1,0 +1,52 @@
+<div class="flex flex-col mb-4">
+  <label
+    class="text-[#1F2937] font-medium font-BentonSansMedium text-sm mb-1"
+    [for]="label()"
+    >{{ label() }}</label
+  >
+
+  @switch (type()) { @case ('text') {
+  <input
+    type="text"
+    [placeholder]="placeholder()"
+    [value]="value()"
+    (input)="onValueChange($event)"
+    class="px-4 py-2 border border-[#D0D5DD] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0051FF]"
+  />
+
+  } @case ('number') {
+  <input
+    type="number"
+    [placeholder]="placeholder()"
+    [value]="value()"
+    (input)="onValueChange($event)"
+    class="px-4 py-2 border border-[#D0D5DD] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0051FF]"
+  />
+
+  } @case ('select') {
+  <select
+    [value]="value()"
+    (change)="onValueChange($event)"
+    class="px-4 py-2 border border-[#D0D5DD] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0051FF]"
+  >
+    @for (option of options(); track $index) {
+    <option [value]="option.value">{{ option.label }}</option>
+    }
+  </select>
+  } @case ('textarea') {
+  <textarea
+    [placeholder]="placeholder()"
+    [value]="value()"
+    (input)="onValueChange($event)"
+    class="px-4 py-2 border border-[#D0D5DD] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0051FF]"
+  ></textarea>
+  } @case ('date') {
+  <input
+    type="date"
+    [placeholder]="placeholder()"
+    [value]="value()"
+    (input)="onValueChange($event)"
+    class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0051FF]"
+  />
+  } }
+</div>
