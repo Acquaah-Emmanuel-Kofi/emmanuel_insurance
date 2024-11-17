@@ -183,7 +183,7 @@ export class ClaimsComponent {
 
   handleRowClick(row: any): void {
     this._router.navigate(['dashboard', 'claims', 'claim-summary'], {
-      queryParams: {
+      state: {
         claimNumber: row.claimNumber,
         policyHolder: row.policyHolder,
         policyNumber: row.policyNumber,
