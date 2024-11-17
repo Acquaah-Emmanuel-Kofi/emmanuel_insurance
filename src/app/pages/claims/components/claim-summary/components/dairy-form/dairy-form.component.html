@@ -1,1 +1,92 @@
-<p>dairy-form works!</p>
+<form
+  class="bg-white p-4 space-y-6 w-full"
+  (ngSubmit)="onSubmit()"
+  [formGroup]="form"
+>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <!-- Type Dropdown -->
+    <div>
+      <app-input-field
+        label="Type"
+        type="select"
+        id="type"
+        [control]="form.get('type')"
+        [options]="typeOptions"
+      ></app-input-field>
+    </div>
+
+    <!-- Title Input -->
+    <div>
+      <app-input-field
+        label="Title"
+        placeholder="Type Title"
+        id="title"
+        [control]="form.get('title')"
+      ></app-input-field>
+    </div>
+
+    <!-- Priority Dropdown -->
+    <div>
+      <app-input-field
+        label="Priority"
+        type="select"
+        id="priority"
+        [control]="form.get('priority')"
+        [options]="priorityOptions"
+        placeholder="Select Priority"
+      ></app-input-field>
+    </div>
+
+    <!-- Due Date -->
+    <div>
+      <app-input-field
+        label="Due Date"
+        type="date"
+        [control]="form.get('dueDate')"
+        placeholder="Select Due Date"
+      ></app-input-field>
+    </div>
+  </div>
+
+  <!-- Description -->
+  <div>
+    <app-input-field
+      label="Description"
+      type="textarea"
+      id="description"
+      [control]="form.get('description')"
+      placeholder="Type Description..."
+    ></app-input-field>
+  </div>
+
+  <div class="flex items-center gap-2">
+    <input
+      id="confidential"
+      type="checkbox"
+      formControlName="confidential"
+      class="h-4 w-4 rounded border-gray-300 accent-[#0051FF]"
+    />
+    <label
+      for="confidential"
+      class="text-[#1F2937] font-medium font-BentonSansMedium text-sm"
+      >Confidential</label
+    >
+  </div>
+
+  <!-- Buttons -->
+  <div class="flex justify-end gap-4">
+    <button
+      type="button"
+      (click)="onCancel()"
+      class="px-4 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-50"
+    >
+      Cancel
+    </button>
+    <button
+      type="submit"
+      class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+    >
+      Add
+    </button>
+  </div>
+</form>
