@@ -54,6 +54,7 @@ export class DairyFormComponent {
   }
 
   onCancel() {
+    this.form.reset()
     this.dialogRef.close();
   }
 }
