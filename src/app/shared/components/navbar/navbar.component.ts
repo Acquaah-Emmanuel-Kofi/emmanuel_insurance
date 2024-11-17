@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-
-type Navlinks = {
-  label: string;
-  iconSrc: string;
-  routerLink: string;
-}
+import { IRouterLinks } from '../../interfaces/constants.interface';
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +10,7 @@ type Navlinks = {
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-  navlinks: Navlinks[] = [
+  navlinks: IRouterLinks[] = [
     {
       label: 'Home',
       iconSrc: 'assets/icons/home.svg',
