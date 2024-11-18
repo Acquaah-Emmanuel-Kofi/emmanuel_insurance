@@ -10,14 +10,16 @@
           >
       
           <div>
-            <app-searchbar />
+            <app-searchbar (searchTermValue)="handleSearchTerm($event)" />
           </div>
       
           <div>
             <app-table
-              [data]="claimsData"
+              [data]="searchTerm() ? filteredData() : claimsData"
               [columns]="claimsColumns"
               (rowClicked)="handleRowClick($event)"
+              [emptyMessageTitle]="emptyMessageTitle"
+              [emptyMessageSubTitle]="emptyMessageSubTitle"
             />
           </div>
         </div>

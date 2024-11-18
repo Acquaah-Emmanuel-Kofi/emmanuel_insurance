@@ -4,6 +4,9 @@ import { IncidentComponent } from './components/claim-summary/components/inciden
 import { DairyItemComponent } from './components/claim-summary/components/dairy-item/dairy-item.component';
 import { FinancialComponent } from './components/claim-summary/components/financial/financial.component';
 import { DocumentsComponent } from './components/claim-summary/components/documents/documents.component';
+import { DetailsComponent } from './components/claim-summary/components/details/details.component';
+import { RiskAtDolComponent } from './components/claim-summary/components/risk-at-dol/risk-at-dol.component';
+import { MemosComponent } from './components/claim-summary/components/memos/memos.component';
 
 export const claimsRoutes: Routes = [
   {
@@ -26,15 +29,15 @@ export const claimsRoutes: Routes = [
       },
       {
         path: 'details',
-        component: IncidentComponent,
+        component: DetailsComponent,
       },
       {
         path: 'risk-at-dol',
-        component: IncidentComponent,
+        component: RiskAtDolComponent,
       },
       {
         path: 'memos',
-        component: IncidentComponent,
+        component: MemosComponent,
       },
       {
         path: 'dairy-items',
