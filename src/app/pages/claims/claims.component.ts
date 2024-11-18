@@ -1,9 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ClaimsHeaderComponent } from './components/claims-header/claims-header.component';
 import { SearchbarComponent } from '../../shared/components/searchbar/searchbar.component';
 import { TableComponent } from '../../shared/components/table/table.component';
 import { IClaimsColumns, IClaimsData } from './interfaces/claims.interface';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { searchArray } from '../../shared/helpers/functions.helper';
 
 @Component({
   selector: 'app-claims',
@@ -174,6 +175,12 @@ export class ClaimsComponent {
     },
   ];
 
+  searchTerm = signal<string>('');
+  emptyMessageTitle: string = '';
+  emptyMessageSubTitle: string = 'clear your search and try again';
+
+  filteredData = signal<IClaimsData[]>([]);
+
   private _router = inject(Router);
   private _activatedRoute = inject(ActivatedRoute);
 
@@ -189,5 +196,22 @@ export class ClaimsComponent {
         policyNumber: row.policyNumber,
       },
     });
+  }
+
+  handleSearchTerm(value: string) {
+    this.searchTerm.set(value);
+    this.emptyMessageTitle = `No results found for '${value}'`;
+
+    const filteredData = searchArray(this.claimsData, value, [
+      'policyHolder',
+      'policyNumber',
+      'status',
+      'claimNumber',
+      'causeCode',
+      'riskDescription',
+      'riskType',
+    ]);
+
+    this.filteredData.set(filteredData ?? []);
   }
 }
